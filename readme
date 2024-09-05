@@ -1,0 +1,35 @@
+# Análise de Séries Temporais dos Preços das Ações do Walmart
+
+Este projeto realiza uma análise de séries temporais dos preços das ações do Walmart com o objetivo de prever preços futuros e fornecer recomendações de investimento com base em dados históricos. Utilizamos técnicas de aprendizado de máquina, incluindo o modelo ARIMA, para prever as tendências futuras das ações.
+
+## Estrutura do Projeto
+
+1. **Importação das Bibliotecas**: Carregamos as bibliotecas necessárias para análise de dados e modelagem.
+2. **Carregamento dos Dados**: Importamos os dados históricos dos preços das ações do Walmart de um arquivo CSV.
+3. **Análise Exploratória**:
+   - Gráficos de linha dos preços de fechamento.
+   - Média móvel dos preços de fechamento.
+   - Volume de transações.
+   - Distribuição dos preços de fechamento.
+   - Boxplot dos preços de fechamento por ano.
+4. **Previsão de Preços Futuros**:
+   - Utilizamos o modelo ARIMA para prever preços futuros e comparar com os dados reais.
+5. **Avaliação do Desempenho do Investimento**:
+   - Calculamos o lucro potencial para um investidor que comprou ações em 2010 e vendeu em 2024.
+   - Fornecemos recomendações com base no desempenho histórico e nas previsões.
+
+## Requisitos
+
+- Python 3.x
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Statsmodels
+- scikit-learn
+
+## Como Executar
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
