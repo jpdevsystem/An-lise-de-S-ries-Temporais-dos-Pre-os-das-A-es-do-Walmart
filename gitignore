@@ -1,0 +1,28 @@
+
+### `.gitignore`
+
+```gitignore
+# Arquivos e diretórios a serem ignorados pelo Git
+
+# Arquivos Python compilados
+*.pyc
+*.pyo
+__pycache__/
+
+# Ambiente virtual
+venv/
+.env
+
+# Arquivos de configuração do Jupyter Notebook
+.ipynb_checkpoints/
+
+# Dados
+data/
+*.csv
+
+# Logs
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
