@@ -1,0 +1,102 @@
+# Importação das bibliotecas necessárias
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from statsmodels.tsa.arima_model import ARIMA
+from sklearn.model_selection import train_test_split
+import datetime as dt
+
+# Carregando os dados
+# Link direto para o arquivo CSV no Google Drive
+url = 'https://drive.google.com/uc?id=13SQ1N3PZtieiaVr37aK5rA8mcuQYMEHA'
+df = pd.read_csv(url, parse_dates=['Date'], index_col='Date')
+
+# Visualização das primeiras linhas dos dados
+print(df.head())
+
+# Visualização da estrutura dos dados
+print(df.info())
+
+# Verificando valores nulos
+print(df.isnull().sum())
+
+# Gráficos para enriquecer a interação
+plt.figure(figsize=(12, 8))
+
+# 1. Gráfico de linha dos preços de fechamento
+plt.subplot(2, 3, 1)
+plt.plot(df['Close'])
+plt.title('Preços de Fechamento ao Longo do Tempo')
+plt.xlabel('Ano')
+plt.ylabel('Preço de Fechamento (USD)')
+
+# 2. Média móvel
+df['Moving_Average'] = df['Close'].rolling(window=50).mean()
+plt.subplot(2, 3, 2)
+plt.plot(df['Close'], label='Fechamento')
+plt.plot(df['Moving_Average'], label='Média Móvel de 50 dias')
+plt.title('Média Móvel dos Preços de Fechamento')
+plt.legend()
+
+# 3. Volume de transações ao longo do tempo
+plt.subplot(2, 3, 3)
+plt.plot(df['Volume'])
+plt.title('Volume de Transações ao Longo do Tempo')
+plt.xlabel('Ano')
+plt.ylabel('Volume')
+
+# 4. Gráfico de distribuição dos preços de fechamento
+plt.subplot(2, 3, 4)
+sns.histplot(df['Close'], kde=True)
+plt.title('Distribuição dos Preços de Fechamento')
+
+# 5. Boxplot dos preços de fechamento ao longo dos anos
+df['Year'] = df.index.year
+plt.subplot(2, 3, 5)
+sns.boxplot(x='Year', y='Close', data=df)
+plt.title('Boxplot dos Preços de Fechamento por Ano')
+
+
+plt.tight_layout()
+plt.show()
+
+# Previsão de preços futuros usando ARIMA
+# Divisão de treino e teste
+train, test = train_test_split(df['Close'], test_size=0.2, shuffle=False)
+
+# Criando o modelo ARIMA
+model = ARIMA(train, order=(5, 1, 0))  # Parâmetros ajustáveis
+model_fit = model.fit(disp=0)
+
+# Previsão
+forecast, stderr, conf_int = model_fit.forecast(steps=len(test))
+
+# Comparando a previsão com os dados reais
+plt.figure(figsize=(10, 6))
+plt.plot(test.index, test, label='Real')
+plt.plot(test.index, forecast, label='Previsto', color='red')
+plt.fill_between(test.index, conf_int[:, 0], conf_int[:, 1], color='pink', alpha=0.3)
+plt.title('Comparação Preços Reais x Previsto - ARIMA')
+plt.xlabel('Data')
+plt.ylabel('Preço de Fechamento')
+plt.legend()
+plt.show()
+
+# Avaliando o lucro para um investidor que comprou ações em 2010 até 2024
+preco_2010 = df.loc[df.index.year == 2010, 'Close'].iloc[0]
+preco_2024 = df.loc[df.index.year == 2024, 'Close'].iloc[-1]
+lucro = ((preco_2024 - preco_2010) / preco_2010) * 100
+
+print(f"Se você tivesse comprado ações em 2010 por ${preco_2010:.2f} e vendesse em 2024 por ${preco_2024:.2f}, "
+      f"você teria um lucro de {lucro:.2f}%.")
+
+# Recomendação de ações futuras com base na tendência
+if lucro > 100:
+    recomendacao = "Seu investimento teve um excelente desempenho. Com base nas tendências, é recomendável manter suas ações."
+elif 50 < lucro <= 100:
+    recomendacao = "O desempenho do seu investimento foi bom. Você pode considerar manter ou vender uma parte das ações."
+else:
+    recomendacao = "Seu investimento não teve o melhor desempenho. Avalie outras oportunidades de investimento."
+
+print(recomendacao)
