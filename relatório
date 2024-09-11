@@ -1,0 +1,54 @@
+ 2024
+
+Modelo Utilizado: ARIMA (Autoregressive Integrated Moving Average)
+
+1. Objetivo do Projeto
+Este projeto foi desenvolvido para analisar as tendências dos preços históricos das ações do Walmart e prever preços futuros com o objetivo de fornecer recomendações de investimento baseadas nos dados analisados. Através de técnicas de análise de séries temporais e visualização de dados, o projeto busca ajudar investidores a tomar decisões informadas sobre suas ações.
+
+2. Resumo dos Dados Utilizados
+Os dados de preços das ações do Walmart entre os anos de 2010 e 2024 foram obtidos em um arquivo CSV. Cada registro inclui as seguintes colunas principais:
+
+Date: Data de cada registro.
+Close: Preço de fechamento diário da ação.
+Volume: Volume de transações (número de ações negociadas).
+3. Análise Exploratória dos Dados
+3.1. Preços de Fechamento ao Longo do Tempo
+A análise visual através do gráfico de linha dos preços de fechamento entre 2010 e 2024 mostrou uma tendência geral de alta, com algumas flutuações ao longo dos anos.
+Notou-se um crescimento constante, mas com quedas temporárias durante eventos de mercado significativos.
+3.2. Média Móvel
+A média móvel de 50 dias foi utilizada para suavizar as flutuações dos preços diários, revelando a tendência de longo prazo dos preços das ações. Isso ajuda a identificar pontos de suporte e resistência no mercado.
+3.3. Volume de Transações
+O gráfico de volume de transações indicou aumento de interesse em períodos específicos, refletindo grandes movimentações de mercado, provavelmente influenciadas por relatórios financeiros ou eventos macroeconômicos.
+3.4. Distribuição dos Preços de Fechamento
+A distribuição dos preços de fechamento mostrou uma concentração em torno de valores mais elevados nos últimos anos, refletindo o crescimento da empresa e a valorização de suas ações.
+3.5. Boxplot dos Preços de Fechamento por Ano
+O boxplot destacou a variação anual dos preços de fechamento, indicando anos mais voláteis (grandes variações) e outros com uma trajetória de crescimento mais estável.
+4. Previsão de Preços Futuros (Modelo ARIMA)
+Foi aplicado o modelo ARIMA para prever os preços futuros com base nos dados históricos. O modelo foi treinado com 80% dos dados, e os 20% restantes foram usados como teste. As previsões mostraram:
+
+Tendência de alta moderada: O modelo ARIMA projetou uma continuação do crescimento dos preços, porém com um ritmo de aumento mais moderado do que em anos anteriores.
+Intervalos de confiança: As previsões foram acompanhadas por intervalos de confiança, que mostram as possíveis variações do preço real dentro de um limite de incerteza.
+5. Desempenho do Investimento (2010 - 2024)
+Um investidor que comprou ações em 2010, ao preço inicial de $53.93, e as vendeu em 2024 pelo preço de $156.17, teria obtido um lucro significativo.
+
+Lucro percentual estimado: Aproximadamente 189.6% de retorno sobre o investimento.
+Este forte retorno sugere que as ações do Walmart ofereceram uma boa valorização para investidores de longo prazo.
+
+6. Recomendações de Investimento
+Com base na análise dos dados históricos e nas previsões de preços futuros, seguem as recomendações:
+
+Perspectiva Atual
+Vantagem de Investimento: O histórico de valorização das ações do Walmart, aliado à previsão de crescimento moderado, sugere que o investimento ainda é interessante, especialmente para investidores de longo prazo que buscam estabilidade.
+Risco Moderado: Apesar de alguns períodos de volatilidade, as ações do Walmart apresentaram resiliência em face de crises econômicas e oscilações do mercado.
+Recomendações Específicas
+Manter ou Adquirir Mais Ações: Para investidores já posicionados, recomenda-se manter as ações devido ao histórico positivo. Para novos investidores, as tendências indicam que pode ser uma boa oportunidade de compra, apesar do crescimento mais moderado.
+Monitoramento Constante: É importante continuar acompanhando os indicadores macroeconômicos e eventos corporativos que possam impactar o preço das ações.
+Diversificação do Portfólio: Embora o Walmart tenha se mostrado uma ação estável e lucrativa, a diversificação do portfólio continua sendo uma estratégia prudente para minimizar riscos.
+7. Conclusão
+Com base nas análises, o Walmart demonstrou ser um investimento sólido e rentável entre 2010 e 2024. A perspectiva de crescimento moderado para os próximos anos, juntamente com a estabilidade da empresa, faz com que as ações ainda sejam uma boa opção para investidores que buscam retornos consistentes com risco moderado. No entanto, é sempre aconselhável diversificar o portfólio e monitorar o mercado para ajustar a estratégia conforme necessário.
+
+Este relatório pode ser usado para fornecer aconselhamento detalhado a investidores que consideram a compra ou venda de ações do Walmart no mercado atual.
+
+
+
+
